@@ -1,0 +1,14 @@
+{% extends 'base.html' %}
+
+{% block title %} BlogPost {% endblock title %}
+
+{% block body %} 
+<div class="container my-3">
+        <h2 class="blog-post-title">{{feed.heading}}</h2>
+        <p class="blog-post-meta">{{feed.date}} <a href="#">{{feed.author}}</a></p>
+
+        <p>{{feed.content}}</p>
+        <ul>
+          
+      </div>
+{% endblock body %}

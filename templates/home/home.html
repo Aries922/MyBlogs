@@ -1,0 +1,41 @@
+{% extends 'base.html' %}
+
+{% block title %} Home {% endblock title %}
+{% block homeactive %} active {% endblock homeactive %}
+
+{% block body %}
+
+<div class="jumbotron jumbotron-fluid p-4 p-md-5 text-white bg-dark">
+    <div class="col-md-6 ">
+      <h1 class="display-4 font-italic">MyBlogs of a longer featured blog post</h1>
+      <p class="lead my-3">Multiple lines of text that form the lede, informing new readers quickly and efficiently about what’s most interesting in this post’s contents.</p>
+      
+    </div>
+  </div>
+  
+
+  <div class="container my-3">
+  {% for feed in allfeeds %}
+
+
+    <div class="row no-gutters border rounded overflow-hidden flex-md-row my-4 shadow-sm h-md-250 position-relative">
+        <div class="col p-4 d-flex flex-column position-static">
+            <strong class="d-inline-block mb-2 text-primary">Article by {{feed.author}}</strong>
+            <h3 class="mb-0">{{feed.heading}}</h3>
+            <div class="mb-1 text-muted">{{feed.date}}</div>
+            <p class="card-text mb-auto">{{feed.content | truncatechars:500}}</p>
+            <div class="my-2">
+                <a href="blog/{{feed.slug}}" role="button" class="btn btn-primary">Continue reading</a>
+            </div>
+        </div>
+        <div class="col-auto d-none d-lg-block"></div>
+    </div>
+
+
+    {% endfor %}
+</div>
+        
+      </div>
+    </div>
+  </div>
+{% endblock body %}
